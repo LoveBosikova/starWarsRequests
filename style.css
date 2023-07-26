@@ -1,7 +1,7 @@
 *{
     font-family: 'Victor Mono', monospace;
     font-weight: 700;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 body {
@@ -15,6 +15,7 @@ body {
 
 h1 {
     color: white;
+    font-size: 40px;
 }
 
 form {
@@ -28,8 +29,15 @@ form {
 }
 
 .input {
-    width: 25vw;
     margin: .2rem;
+}
+
+.input--first {
+    width: 35vw;
+}
+
+.input--second {
+    width: 25vw;
 }
 
 button {
