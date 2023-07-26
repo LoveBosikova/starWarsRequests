@@ -1,6 +1,38 @@
+*{
+    font-family: 'Victor Mono', monospace;
+    font-weight: 700;
+    font-size: 40px;
+}
+
 body {
+    padding-top: 3rem;
+    padding-left: 2rem;
     width: 100%;
     height: 100%;
     background-image: url('sw-bcg-common.jpg');
     background-size: cover;
+}
+
+h1 {
+    color: white;
+}
+
+form {
+    width: 50vw;
+    text-align: center;
+}
+
+.inputs {
+    display: flex;
+    justify-content: space-around
+}
+
+.input {
+    width: 25vw;
+    margin: .2rem;
+}
+
+button {
+    padding: .2rem .5rem;
+    margin: 1rem auto;
 }
