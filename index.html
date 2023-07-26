@@ -13,14 +13,18 @@
     <form>
         <h1>Что ты хочешь знать, падаван?</h1>
         <div class="inputs">
-            <select class="input input--first">
-                <option disabled selected>Выбери свой путь</option>
+            <select name="searchObject" class="input input--first">
+                <option disabled selected value="failure">Выбери свой путь</option>
                 <option value="people">Люди</option>
                 <option value="planets">Планеты</option>
                 <option value="films">Фильмы</option>
-            </select></p>
-            <input type="number" class="input input--second" placeholder="Число судьбы">
+            </select>
+            <div class="input input--second">
+                <input name="number" type="number" placeholder="Число судьбы">
+            </div>
         </div>
+        <p class="valErr"></p>
+        <p class="numErr"></p>
         <button type="submit">Воззреть истину</button>
     </form>
     <script src="index.js"></script>

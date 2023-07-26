@@ -30,6 +30,7 @@ form {
 
 .input {
     margin: .2rem;
+
 }
 
 .input--first {
@@ -38,6 +39,12 @@ form {
 
 .input--second {
     width: 25vw;
+}
+
+.numErr, .valErr {
+    color: white;
+    font-size: 15px;
+
 }
 
 button {
