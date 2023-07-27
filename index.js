@@ -25,29 +25,45 @@ function createQuery(){
 
 // Логика вывода результата на экран
 function showResult (item){
+    if (item == undefined) {
+        return;
+    }
     document.querySelector('.result').textContent = `Твоя судьба - ${item}`;
-
 }
 
+// Логика лоадера
+
+const loaderContainer = document.querySelector('.loader');
+const displayLoading = () => {
+    loaderContainer.style.display = 'block';
+};
+
+const hideLoading = () => {
+    loaderContainer.style.display = 'none';
+};
+// РАбота с кнопкой сабмит - продолжение обработки данных, запрос + логика анимации
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    if (form.elements.searchObject.value == 'failure') {
+    displayLoading();
+    if (form.elements.searchObject.value == 'failure' || form.elements.number.value == '') {
         document.querySelector('.valErr').textContent = 'Пустой запрос не ведёт к свету. Сделай выбор';
+        hideLoading();
     } else {
         document.querySelector('.valErr').textContent = '';
     }
 
-    if (form.elements.number.value == '') {
-        document.querySelector('.numErr').textContent = 'Пустота порождает пустоту. Введи число';
-    } else {
-        document.querySelector('.numErr').textContent = '';
-    }
     try{
         const response = await fetch(createQuery());
         const item = await response.json();
-        showResult(item.name);
+        console.log(item);
+        hideLoading();
+
+        const searchObj = item.name === undefined? item.title : item.name;
+        showResult(searchObj);
     } catch (err) {
         console.log(err);
+        hideLoading();
+        showResult('Пустота. Но всегда можно попробовать заново');
         throw err;
     }
 });
