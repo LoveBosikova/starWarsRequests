@@ -13,12 +13,12 @@ body {
     background-size: cover;
 }
 
-h1 {
+h1, .result {
     color: white;
     font-size: 40px;
 }
 
-form {
+form, .result {
     width: 50vw;
     text-align: center;
 }

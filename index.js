@@ -18,6 +18,17 @@ form.elements.searchObject.addEventListener('change', () => {
     }
 });
 
+// Формируем запрос 
+function createQuery(){
+    return `https://swapi.dev/api/${form.elements.searchObject.value}/${form.elements.number.value}/`;
+}
+
+// Логика вывода результата на экран
+function showResult (item){
+    document.querySelector('.result').textContent = `Твоя судьба - ${item}`;
+
+}
+
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (form.elements.searchObject.value == 'failure') {
@@ -33,15 +44,10 @@ form.addEventListener('submit', async (e) => {
     }
     try{
         const response = await fetch(createQuery());
+        const item = await response.json();
+        showResult(item.name);
     } catch (err) {
-        
+        console.log(err);
+        throw err;
     }
-    console.log(response);
-    const item = await response.json();
-    console.log(item);
 });
-
-//Формируем запрос 
-function createQuery(){
-    return `https://swapi.dev/api/${form.elements.searchObject.value}/${form.elements.number.value}/`;
-}
