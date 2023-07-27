@@ -5,12 +5,13 @@
 }
 
 body {
-    padding-top: 3rem;
-    padding-left: 2rem;
+    padding: 3rem;
     width: 100%;
     height: 100%;
     background-image: url('sw-bcg-common.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-color: black;
 }
 
 h1, .result {
@@ -25,7 +26,7 @@ form, .result {
 
 .inputs {
     display: flex;
-    justify-content: space-around
+    justify-content: space-around;
 }
 
 .input {
@@ -34,11 +35,11 @@ form, .result {
 }
 
 .input--first {
-    width: 35vw;
+    width: 25vw;
 }
 
-.input--second {
-    width: 25vw;
+.input--second>input {
+    width: 15vw;
 }
 
 .numErr, .valErr {
@@ -58,7 +59,7 @@ button {
 }
 
 img {
-    width: 10vw;
+    width: 15vw;
     max-width: 100%;
     animation: spin-anim 1.2s linear infinite;
 }
@@ -69,5 +70,34 @@ img {
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 860px) {
+    form, .result {
+        width: 80vw;
+    }
+    body {
+        padding: 2rem 1rem;
+    }
+    img {
+        width: 20vw;
+    }
+
+    .input--first {
+        width: 45vw;
+    }
+    
+    .input--second>input {
+        width: 35vw;
+    }
+}
+
+@media (max-width: 450px) {
+    form, .result {
+        width: 95vw;
+    }
+    body {
+        padding: .2rem;
     }
 }
